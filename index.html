@@ -1,0 +1,70 @@
+<html ng-app="todoApp">
+   <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="myStyles.css"/>
+      
+      <script src="todo.js"></script>
+   </head>
+   
+   <body>
+      <div ng-controller="TodoListController as todoList"  class='custom_wrap'>
+         <div class="card">
+            <div class="row">
+               <div class="input-field col s12">
+                  <span class="card-title activator grey-text text-darken-4">Wiki House<i class="material-icons right">more_vert</i></span><br>
+               </div>
+            </div>
+            <div class="card-image waves-effect waves-block waves-light">
+               <img class="activator" src="house.jpg">
+            </div>
+            <div class="card-content">
+               <div class="row">
+                  <form class="col s12">
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <input id="last_name" type="text" class="validate" ng-model="name">
+                           <label for="first_name">Name</label>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <input id="rating" type="text" class="validate" ng-model="review">
+                           <label for="rating">Rating</label>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <input id="comments" type="text" class="validate" ng-model="comment">
+                           <label for="comments">Comments</label>
+                        </div>
+                     </div>
+                  </form>
+                  <div class="row">
+                     <div class="input-field col s12">
+                        <a class="waves-effect waves-light btn" ng-click="addReview(name, review, comment)" >Submit</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="card-reveal">
+               <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+               <ul class="collection">
+                  <li class="collection-item avatar"  ng-repeat=" item in reviewList">
+                     <img src="human.jpg" alt="" class="circle">
+                     <span class="title">{{item.name}}</span>
+                     <p>{{item.rating}}<br>
+                        {{item.review}}
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+   </body>
+   </body>
+</html>
